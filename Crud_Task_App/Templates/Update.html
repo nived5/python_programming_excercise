@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{%load crispy_forms_tags %}
+<div class="container">
+    <div class="row">
+        <div class ="col-md-12">
+            <h1 class="text-center display-&">Update </h1>
+        </div>
+        <div class="col-md-12">
+            <form method="POST">
+                {% csrf_token %}
+                {{variable|crispy}}
+                <input type="submit" class="btn btn-dark btn-block" value="update"/>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

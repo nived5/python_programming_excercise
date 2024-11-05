@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<style>
+  .custom-table {
+    background-color: #f0f8ff;
+    border: solid;
+    padding:20px;
+    margin:20px;
+    margin-right:20px
+  }
+</style>
+<div style="background-color:f0f8ff; padding-top:30px; border:solid"><table class="table table-bordered custom-table">
+  <thead>
+    <tr>
+<!--      <th scope="col"><input type="checkbox"></th> &lt;!&ndash; Checkbox for selecting all &ndash;&gt;-->
+      <th scope="col">Study name</th>
+      <th scope="col">Study Phase</th>
+      <th scope="col">Sponsor name</th>
+      <th scope="col">Study Description</th>
+      <th scope="col">View</th>
+      <th scope="col">Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+{% for i in read %}
+    <tr>
+      <td><input type="checkbox"></td> <!-- Checkbox for this row -->
+        <td>{{i.studyName}}</td>
+        <td>{{i.studyDescription}}</td>
+        <td>{{i.SponsorName}}</td>
+        <td><a href="{% url 'detailedView' i.id %}"><button type="button" class="btn btn-link">View</button></td>
+      <td><a href="{% url 'update' i.id %}"><button type="button" class="btn btn-link">Edit</button></td>
+
+
+
+
+
+
+    </tr>
+
+   {% endfor %}
+  </tbody>
+</table>
+
+<div style="text-align: center; margin-top: 20px;">
+    <a href="{% url 'addStudy' %}">
+  <button style="background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px;">
+    Add study
+  </button>
+
+
+            <button style="background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px;" <a href="delete">
+    Delete study
+  </button>
+
+</div></div>
+
+
+</body>
+</html>
+
